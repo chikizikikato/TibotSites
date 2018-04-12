@@ -2,11 +2,11 @@ add:
 	selector: css
 	param: input.button
 	check:
-    attribute: {value: 'add to basket'}
+		attribute: {value: 'add to basket'}
 to_cart:
 	selector: css
 	param: a.button.checkout
 	check:
-    attribute: {class: 'button checkout'}
-	  text: checkout now
+		attribute: {class: 'button checkout'}
+		text: checkout now
 		
