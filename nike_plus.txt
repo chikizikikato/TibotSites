@@ -1,0 +1,11 @@
+size_drop_btn:
+	selector: css
+        param: 'a.js-size-btn.ncss-btn.border-medium-grey.ncss-brand.u-uppercase.pt3-sm.pr5-sm.pb3-sm.pl5-sm.pt2-lg.pb2-lg.u-full-width'
+
+size:
+	size_name: 'data-site'
+	disable_filter: 'disabled'
+
+add:
+	selector: css
+	param: 'a.js-buy.ncss-brand.ta-sm-c.u-uppercase.pt3-sm.pr5-sm.pb3-sm.pl5-sm.pt2-lg.pb2-lg.d-sm-b.d-lg-ib.test-buyable.ncss-btn.bg-black.text-color-white'
