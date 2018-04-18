@@ -1,0 +1,25 @@
+sequence: button.variable_btn, button.size_btn, size.size_click_filter, button.add
+
+size:
+  size_click_filter:
+    all_elements_tag: li
+    size_name_attribute: data-site
+    disable_filter: disabled
+    disable_attribute: class
+
+button:
+  size_btn:
+    selector: css
+    param: "'a.js-size-btn.ncss-btn.border-medium-grey.ncss-brand.u-uppercase.pt3-sm.pr5-sm.pb3-sm.pl5-sm.pt2-lg.pb2-lg.u-full-width'"
+
+  add:
+    selector: css
+    param: "'a.js-buy.ncss-brand.ta-sm-c.u-uppercase.pt3-sm.pr5-sm.pb3-sm.pl5-sm.pt2-lg.pb2-lg.d-sm-b.d-lg-ib.test-buyable.ncss-btn.bg-black.text-color-white'"
+  variable_btn:
+    selector: css
+    param: "'div.js-accept.ncss-btn-accent.ncss-brand.pt3-sm.pb3-sm.pt2-lg.pb2-lg.u-uppercase.ta-sm-c.u-full-width'"
+    next_btn: size_btn
+    wait: 12
+    extra_wait: 3
+    check:
+      text: JA, ICH STIMME ZU
