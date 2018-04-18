@@ -1,0 +1,27 @@
+sequence: color.filtered_colors, size.size_xpath_script, button.add, button.to_cart
+
+color:
+  filtered_colors:
+    all_elements_tag: a
+    filter_attribute: data-style-name
+    color_name_attribute: data-style-name
+
+size:
+  size_xpath_script:
+    xpath_param: "//select[@name='size']"
+    script: "arguments[0].setAttribute('style','display: block;')"
+
+button:
+  add:
+    selector: css
+    param: "'input.button'"
+    check:
+      attribute:
+        value: add to basket
+  to_cart:
+    selector: css
+    param: "'a.button.checkout'"
+    check:
+      attribute:
+        class: button checkout
+      text: checkout now
