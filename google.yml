@@ -1,0 +1,29 @@
+#google account log in
+sequence: input.email, button.email_next, input.password, button.pass_next
+
+button:
+  email_next:
+    selector: id
+    param: "'identifierNext'"
+    wait: 3
+  pass_next:
+    selector: id
+    param: "'passwordNext'"
+    wait: 3
+    action_chain: True
+
+input:
+  email:
+    selector: id
+    param: "'identifierId'"
+    wait: 3
+    check:
+      attribute:
+        type: email
+  password:
+    selector: xpath
+    param: "\"//input[@name='password']\""
+    wait: 3
+    check:
+      attribute:
+        type: password
