@@ -17,14 +17,14 @@ input:
   email:
     selector: id
     param: "'identifierId'"
-    wait: 3
+    wait: 4
     check:
       attribute:
         type: email
   password:
     selector: xpath
     param: "\"//input[@name='password']\""
-    wait: 3
+    wait: 4
     check:
       attribute:
         type: password
