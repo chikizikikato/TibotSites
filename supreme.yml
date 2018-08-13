@@ -1,4 +1,7 @@
-sequence: color.filtered_colors, size.size_xpath_script, button.add, button.to_cart
+sequence: color.filtered_colors, size.size_xpath_script, button.add, button.to_cart, input.name, input.email, input.telefon_number, input.address, input.city, input.postcode, input.country_xpath_script, pay.dummy
+pp_sequence: pay.pp.set.pp_xpath_script
+cc_sequence: pay.cc.set.cc_xpath_script, pay.cc.input.cc_number, pay.cc.input.card_check_number, pay.cc.input.death_date
+
 
 color:
   filtered_colors:
@@ -15,13 +18,109 @@ button:
   add:
     selector: css
     param: "'input.button'"
+    wait: 2
     check:
       attribute:
         value: add to basket
   to_cart:
     selector: css
     param: "'a.button.checkout'"
+    wait: 2
     check:
       attribute:
         class: button checkout
       text: checkout now
+  accept_terms:
+    selector: css
+    param: "'ins.iCheck-helper'"
+    wait: 2
+
+input:
+  name:
+    selector: id
+    param: "'order_billing_name'"
+    wait: 2
+    check:
+      atttibute:
+        class: string required
+  email:
+    selector: id
+    param: "'order_email'"
+    wait: 2
+    check:
+      attribute:
+        class: string email optional
+  telefon_number:
+    selector: id
+    param: "'order_tel'"
+    wait: 2
+    check:
+      attribute:
+        class: string required
+  address:
+    selector: id
+    param: "'bo'"
+    wait: 2
+    check:
+      attribute:
+        class: string required
+        name: order[billing_address]
+  city:
+    selector: id
+    param: "'order_billing_city'"
+    wait: 2
+    check:
+      attribute:
+        class: string required
+  postcode:
+    selector: id
+    param: "'order_billing_zip'"
+    wait: 2
+    check:
+      attribute:
+        class: string required
+  country_xpath_script:
+    use_case: upper
+    xpath_param: "//select[@id='order_billing_country']"
+    script: "arguments[0].setAttribute('style','display: block;')"
+
+pay:
+  pp:
+    set:
+      pp_xpath_script:
+        name: PayPal
+        xpath_param: "//select[@id='credit_card_type']"
+        script: "arguments[0].setAttribute('style','display: block;')"
+  cc:
+    set:
+      cc_xpath_script:
+        use_case: none
+        xpath_param: "//select[@id='credit_card_type']"
+        script: "arguments[0].setAttribute('style','display: block;')"
+    input:
+      cc_number:
+        input:
+          selector: id
+          param: "'cnb'"
+          wait: 1
+          check:
+            attribute:
+              class: string required
+      card_check_number:
+        input:
+          selector: id
+          param: "'vval'"
+          wait: 1
+          check:
+            attribute:
+              class: string required
+      death_date:
+        month:
+          month_xpath_script:
+            xpath_param: "//select[@id='credit_card_month']"
+            script: "arguments[0].setAttribute('style','display: block;')"
+        year:
+          year_xpath_script:
+            xpath_param: "//select[@id='credit_card_year']"
+            script: "arguments[0].setAttribute('style','display: block;')"
+        
