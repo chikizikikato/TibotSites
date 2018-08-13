@@ -1,5 +1,6 @@
 #google account log in
 sequence: input.email, button.email_next, input.password, button.pass_next
+url: https://accounts.google.com/signin/v2/identifier?hl=de&flowName=GlifWebSignIn&flowEntry=ServiceLogin
 
 button:
   email_next:
