@@ -1,7 +1,7 @@
 sequence: color.filtered_colors, size.size_xpath_script, button.add, button.to_cart, input.name, input.email, input.telefon_number, input.address, input.city, input.postcode, input.country_xpath_script, pay.dummy
 pp_sequence: pay.pp.set.pp_xpath_script
 cc_sequence: pay.cc.set.cc_xpath_script, pay.cc.input.cc_number, pay.cc.input.card_check_number, pay.cc.input.death_date
-
+google_login: True
 
 color:
   filtered_colors:
