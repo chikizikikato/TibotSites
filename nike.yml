@@ -11,26 +11,28 @@ google_login: False
 size:
   size_click_filter:
     all_elements_tag: li
-    size_name_attribute: data-size
+    size_name_attribute: text
+    re_for_size: '([0-9]{2}([^.]|$))|([0-9]{2}\\.5)'
     disable_filter: disabled
     disable_attribute: class
 
 button:
   size_btn:
     selector: css
-    param: "'a.js-size-btn.ncss-btn.border-medium-grey.ncss-brand.u-uppercase.pt3-sm.pr5-sm.pb3-sm.pl5-sm.pt2-lg.pb2-lg.u-full-width'"
+    param: "'div.label.border-medium-grey.ncss-brand.u-uppercase.pb3-sm.pb3-lg.prl5-sm.pt3-sm.pt3-lg.pl5-sm.u-full-width '"
     cond: visibility_of_element_located
     action_chain: True
+    scroll: 1200
     wait: 4
   add:
     selector: css
-    param: "'a.js-buy.ncss-brand.ta-sm-c.u-uppercase.pt3-sm.pr5-sm.pb3-sm.pl5-sm.pt2-lg.pb2-lg.d-sm-b.d-lg-ib.test-buyable.ncss-btn.bg-black.text-color-white'"
+    param: "'button.ncss-brand.ncss-btn-black.pb3-sm.prl5-sm.pt3-sm.u-uppercase.u-full-width'"
     cond: element_to_be_clickable
     action_chain: True
     wait: 2
   variable_btn:
     selector: css
-    param: "'div.js-accept.ncss-btn-accent.ncss-brand.pt3-sm.pb3-sm.pt2-lg.pb2-lg.u-uppercase.ta-sm-c.u-full-width'"
+    param: "'button.ncss-btn-accent.ncss-brand.pt3-sm.pb3-sm.pt2-lg.pb2-lg.u-uppercase.ta-sm-c.u-full-width'"
     next_btn: size_btn
     wait: 12
     extra_wait: 3
@@ -56,7 +58,7 @@ log_in:
   make:
     button:
       selector: css
-      param: "'a.js-log-in.small.text-color-grey.d-sm-ib.va-sm-m.mr4-sm'"
+      param: "'button.join-log-in.text-color-grey.prl3-sm.pt2-sm.pb2-sm.fs12-sm.d-sm-b'"
       wait: 2
       action_chain: True
   input:
@@ -139,7 +141,7 @@ pay:
       cc_radio_button_choose:
         selector: xpath
         param: "\"//label[@class='ncss-label pl4-sm pt2-sm pb2-sm pr4-sm u-full-width p-sm p-sm']/span\""
-        cond: "checkout_dict[\'cc_number\'][:-4]==e.text"
+        cond: "checkout_dict['cc_number'][:-4]==e.text"
     input:
       check_number:
         input:
