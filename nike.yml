@@ -6,6 +6,7 @@ sequence: button.variable_btn, log_in.dummy, wait.3,button.size_btn, size.size_c
 pp_sequence: pay.pp.set.pp_button
 cc_sequence: pay.cc.set.cc_radio_button_choose, pay.cc.input.check_number
 log_in_sequence: log_in.make.button, log_in.input.user, log_in.input.pass, log_in.finish.button
+google_login: False
 
 size:
   size_click_filter:
