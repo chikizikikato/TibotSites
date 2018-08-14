@@ -1,9 +1,16 @@
-sequence: button.variable_btn, button.size_btn, size.size_click_filter, button.add
+#the right personal info shouldbe preselected and the right credit card also
+#important: the personal info must be selected but it doesnt matter what it is
+# log_in.dummy
+sequence: button.variable_btn, log_in.dummy, wait.3,button.size_btn, size.size_click_filter, button.add, pay.dummmy, button.continue_to_pay
+# input.first_name, input.last_name, input.address_street, input.address_number, input.city, input.postcode, input.telefon_number, button.continue_to_pay, wait.2,
+pp_sequence: pay.pp.set.pp_button
+cc_sequence: pay.cc.set.cc_radio_button_choose, pay.cc.input.check_number
+log_in_sequence: log_in.make.button, log_in.input.user, log_in.input.pass, log_in.finish.button
 
 size:
   size_click_filter:
     all_elements_tag: li
-    size_name_attribute: data-site
+    size_name_attribute: data-size
     disable_filter: disabled
     disable_attribute: class
 
@@ -11,10 +18,15 @@ button:
   size_btn:
     selector: css
     param: "'a.js-size-btn.ncss-btn.border-medium-grey.ncss-brand.u-uppercase.pt3-sm.pr5-sm.pb3-sm.pl5-sm.pt2-lg.pb2-lg.u-full-width'"
-
+    cond: visibility_of_element_located
+    action_chain: True
+    wait: 4
   add:
     selector: css
     param: "'a.js-buy.ncss-brand.ta-sm-c.u-uppercase.pt3-sm.pr5-sm.pb3-sm.pl5-sm.pt2-lg.pb2-lg.d-sm-b.d-lg-ib.test-buyable.ncss-btn.bg-black.text-color-white'"
+    cond: element_to_be_clickable
+    action_chain: True
+    wait: 2
   variable_btn:
     selector: css
     param: "'div.js-accept.ncss-btn-accent.ncss-brand.pt3-sm.pb3-sm.pt2-lg.pb2-lg.u-uppercase.ta-sm-c.u-full-width'"
@@ -23,3 +35,117 @@ button:
     extra_wait: 3
     check:
       text: JA, ICH STIMME ZU
+  continue_to_pay:
+    selector: css
+    param: "'a.js-save-button.test-save-button.ncss-btn.bg-black.text-color-white.ncss-brand.pr5-sm.pl5-sm.pt3-sm.pb3-sm.pt2-lg.pb2-lg.u-uppercase.d-sm-b.d-lg-ib'"
+    cond: presence_of_element_located
+    wait: 2
+    check:
+      href: '#'
+  
+log_in:
+  finish:
+    button:
+      selector: xpath
+      param: "\"//input[@type='button']\""
+      wait: 2
+      check:
+        attribute:
+          type: button
+  make:
+    button:
+      selector: css
+      param: "'a.js-log-in.small.text-color-grey.d-sm-ib.va-sm-m.mr4-sm'"
+      wait: 2
+      action_chain: True
+  input:
+    user:
+      selector: name
+      param: "'emailAddress'"
+      wait: 2
+      check:
+        attribute:
+          type: email
+    pass:
+      selector: name
+      param: "'password'"
+      wait: 2
+      check:
+        attribute:
+          type: password
+  
+        
+input:
+  first_name:
+    selector: id
+    param: "'first_name_shipping'"
+    wait: 2
+    check:
+      atttibute:
+        data-provide: firstName
+  last_name:
+    selector: id
+    param: "'last_name_shipping'"
+    wait: 2
+    check:
+      atttibute:
+        data-provide: lastName
+  telefon_number:
+    selector: id
+    param: "'order_tel'"
+    wait: 2
+    check:
+      attribute:
+        class: string required
+  address_street:
+    selector: id
+    param: "'shipping-address-1'"
+    wait: 2
+    check:
+      attribute:
+        data-provide: address1
+  address_number:
+    selector: id
+    param: "'shipping-address-2'"
+    wait: 2
+    check:
+      attribute:
+        data-provide: address2
+  city:
+    selector: id
+    param: "'city'"
+    wait: 2
+    check:
+      attribute:
+        data-provide: city
+  postcode:
+    selector: id
+    param: "'zipcode'"
+    wait: 2
+    check:
+      attribute:
+        data-provide: postalCode
+        
+pay:
+  pp:
+    set:
+      pp_button:
+        selector: id
+        param: "'addPayPal'"
+        wait: 2
+  cc:
+    set:
+      cc_radio_button_choose:
+        selector: xpath
+        param: "\"//label[@class='ncss-label pl4-sm pt2-sm pb2-sm pr4-sm u-full-width p-sm p-sm']/span\""
+        cond: "checkout_dict[\'cc_number\'][:-4]==e.text"
+    input:
+      check_number:
+        input:
+          selector: id
+          param: "'cvNumber'"
+          wait: 1
+          check:
+            attribute:
+              data-shortname: cvv
+      
