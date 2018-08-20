@@ -124,3 +124,16 @@ pay:
             xpath_param: "//select[@id='credit_card_year']"
             script: "arguments[0].setAttribute('style','display: block;')"
         
+captcha:
+  frames:
+    checkbox:
+      selector: tag
+      param: "\"iframe\""
+      wait: 2
+      cond: presence_of_element_located
+    captcha:
+      selector: tag
+      param: "\"iframe\""
+      wait: 2
+      cond: presence_of_element_located
+  box: False
