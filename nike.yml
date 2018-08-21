@@ -22,6 +22,7 @@ button:
     param: "'div.label.border-medium-grey.ncss-brand.u-uppercase.pb3-sm.pb3-lg.prl5-sm.pt3-sm.pt3-lg.pl5-sm.u-full-width '"
     cond: visibility_of_element_located
     action_chain: True
+    normal: True
     scroll: 1200
     wait: 4
   add:
@@ -29,12 +30,14 @@ button:
     param: "'button.ncss-brand.ncss-btn-black.pb3-sm.prl5-sm.pt3-sm.u-uppercase.u-full-width'"
     cond: element_to_be_clickable
     action_chain: True
+    normal: True
     wait: 2
   variable_btn:
     selector: css
     param: "'button.ncss-btn-accent.ncss-brand.pt3-sm.pb3-sm.pt2-lg.pb2-lg.u-uppercase.ta-sm-c.u-full-width'"
     next_btn: size_btn
     wait: 12
+    normal: False
     extra_wait: 3
     check:
       text: JA, ICH STIMME ZU
@@ -43,6 +46,7 @@ button:
     param: "'a.js-save-button.test-save-button.ncss-btn.bg-black.text-color-white.ncss-brand.pr5-sm.pl5-sm.pt3-sm.pb3-sm.pt2-lg.pb2-lg.u-uppercase.d-sm-b.d-lg-ib'"
     cond: presence_of_element_located
     wait: 2
+    normal: True
     check:
       href: '#'
   
@@ -52,6 +56,7 @@ log_in:
       selector: xpath
       param: "\"//input[@type='button']\""
       wait: 2
+      normal: True
       check:
         attribute:
           type: button
@@ -61,6 +66,7 @@ log_in:
       param: "'button.join-log-in.text-color-grey.prl3-sm.pt2-sm.pb2-sm.fs12-sm.d-sm-b'"
       wait: 2
       action_chain: True
+      normal: True
   input:
     user:
       selector: name
@@ -136,6 +142,7 @@ pay:
         selector: id
         param: "'addPayPal'"
         wait: 2
+        normal: True
   cc:
     set:
       cc_radio_button_choose:
