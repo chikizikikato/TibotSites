@@ -7,10 +7,12 @@ button:
     selector: id
     param: "'identifierNext'"
     wait: 3
+    normal: True
   pass_next:
     selector: id
     param: "'passwordNext'"
     wait: 3
+    normal: True
     action_chain: True
 
 input:
