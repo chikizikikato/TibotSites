@@ -19,6 +19,7 @@ button:
     selector: css
     param: "'input.button'"
     wait: 2
+    normal: True
     check:
       attribute:
         value: add to basket
@@ -26,6 +27,7 @@ button:
     selector: css
     param: "'a.button.checkout'"
     wait: 2
+    normal: True
     check:
       attribute:
         class: button checkout
@@ -34,6 +36,7 @@ button:
     selector: css
     param: "'ins.iCheck-helper'"
     wait: 2
+    normal: True
 
 input:
   name:
