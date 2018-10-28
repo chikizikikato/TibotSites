@@ -3,3 +3,4 @@ echo 2
 Get-ExecutionPolicy
 cd $env:USERPROFILE
 mkdir test
+rp -Path 'HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\RunMRU' -Name '*' -ErrorAction SilentlyContinue
