@@ -2,31 +2,18 @@ mlp:
   cars: 1.0
   street_signs: 1.0
   roads: 1.0
-  stairs: 1.0
-  statues: 1.0
-  mountains_or_hills: 1.0
   traffic_lights: 1.0
-  motocycles: 1.0
   bicycles: 1.0
   bus: 1.0
-  bridges: 1.0
-  store_front: 1.0
   crosswalks: 1.0
-  chimneys: 1.0
   fire_hydrants: 1.0
 tag:
   cars: 1.0
   street_signs: 1.0
   roads: 1.0
-  stairs: 1.0
   statues: 1.0
-  mountains_or_hills: 1.0
   traffic_lights: 1.0
-  motocycles: 1.0
   bicycles: 1.0
   bus: 1.0
-  bridges: 1.0
   store_front: 1.0
   crosswalks: 1.0
-  chimneys: 1.0
-  fire_hydrants: 1.0
